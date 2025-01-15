@@ -1,0 +1,15 @@
+.card{
+    width: 300px;
+    height: 450px;
+    margin: 10px;
+    background-color: #fdf5e6;
+}
+.card img{
+    height: 200px;
+    border-radius: 10px;
+}
+.card button{
+    position: relative;
+    width: 50%;
+    margin-top: 10px;
+}
