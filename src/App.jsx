@@ -10,7 +10,8 @@ import './css/Item.css'
 import Navbar from './components/Navbar';
 import Greetings from './components/Greetings';
 import ItemListContainer from './components/ItemListContainer';
-
+import ItemDetailContainer from './components/ItemDetailContainer';
+import cartContext, { CartContextProvider } from './context/cartContext';
 
 function App() {
   
@@ -19,7 +20,8 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
+    <CartContextProvider>
+      <BrowserRouter>
 
     <header>
       <Navbar />
@@ -42,12 +44,29 @@ function App() {
 
         }></Route>
 
-        <Route path="/categorias/:category"></Route>
+        <Route path="/categorias/:catid" element={
+            <main>
+            <section>
+      
+              <Greetings greetings="Los mejores productos de Ciudad de la Costa">          
+              </Greetings>
+              
+              <ItemListContainer />
+              
+              </section>
+          </main>
+        }>
+        </Route>
 
-        <Route path="/item/:id"></Route>
+        <Route path="/item/:id" element={
+          <ItemDetailContainer></ItemDetailContainer>
+        }>
+          
+        </Route>
 
       </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+      </CartContextProvider>
     <footer>
 
     </footer>

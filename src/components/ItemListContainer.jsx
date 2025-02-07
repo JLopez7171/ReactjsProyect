@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react'
 import Item from "./Item"
 import getAsyncData from '../data/getAsyncData'
+import { getAsyncItemsByCategory } from '../data/getAsyncData'
 import { useParams } from 'react-router-dom'
 
 export default function ItemListContainer(props){
 
     const [musicProducts, setMusicProducts]= useState([])
-    const {catid} = useParams
+    const {catid} = useParams()
+
+
     useEffect(() => {
 
-        if (catid === undefined) {
+        if (!catid) {
 
           const respuestaPromise = getAsyncData()
           respuestaPromise.then((respuesta) => setMusicProducts(respuesta)).catch((error) => alert(error))
@@ -21,12 +24,7 @@ export default function ItemListContainer(props){
 
         }
 
-      }, [])
-
-    useEffect(()=>{
-        const apiResponse= getAsyncData()
-    apiResponse.then(resp=>setMusicProducts(resp))
-    }, [])
+      }, [catid])
 
     const list = musicProducts.map(prod => <Item
     
@@ -37,12 +35,13 @@ export default function ItemListContainer(props){
           img={prod.img} 
           category={prod.category}
           ></Item>)
+          
 
     return(
 
         <div className='cardContainer'>
 
-             {list}
+          {list}
 
         </div>
             

@@ -18,8 +18,20 @@ export default function Navbar() {
                     Inicio
                 </Link>
                 
-                <Link to="/categorias">
-                    Categorias
+                <Link to="/categorias/instrumentos">
+                    Instrumentos
+                </Link>
+                
+                <Link to="/categorias/audio">
+                    Audio
+                </Link>
+
+                <Link to="/categorias/accesorios">
+                    Accesorios
+                </Link>
+
+                <Link to={`/categorias/${encodeURIComponent("producción musical")}`}>
+                    Producción Musical
                 </Link>
                 
                 <CartWidget></CartWidget>

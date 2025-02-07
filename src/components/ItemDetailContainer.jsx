@@ -16,7 +16,8 @@ function ItemDetailContainer() {
     getProduct();
   }, [id]);
 
-  return <ItemDetail {...product} />
+  return <ItemDetail {...product}></ItemDetail>
+
 }
 
 export default ItemDetailContainer

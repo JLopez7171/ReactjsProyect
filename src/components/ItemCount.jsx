@@ -1,16 +1,17 @@
-
 import { useState } from "react";
 
-export default  function ItemCount(props) {
+export default function ItemCount(props) {
   let [count, setCount] = useState(1);
 
   const handleAdd = () => {
     if (count === props.max) return;
+    console.log("Suma");
     setCount(count + 1);
   };
 
   const handleSubstract = () => {
-    if (count === props.min) return;
+    if (count ===props.min) return;
+    console.log("Resta");
     setCount(count - 1);
   };
 
