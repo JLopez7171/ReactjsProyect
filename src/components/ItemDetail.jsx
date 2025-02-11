@@ -1,8 +1,12 @@
 import cartContext from '../context/cartContext'
-import {useContext } from 'react'
+import {useContext, useState } from 'react'
 import ItemCount from "./ItemCount"
+import { Link } from 'react-router-dom'
 
 function ItemDetail(props) {
+
+  const [isAddedToCart, setIsAddedToCart] = useState(false)
+
   const { price, title, description, text, img, stock, category, id} = props
 
   const {addItem} = useContext(cartContext)
@@ -10,6 +14,7 @@ function ItemDetail(props) {
   function onSubmitCount(count) {
     console.log(`Agregaste ${count} unidades al carrito`);
     addItem({id, title, price, count})
+    setIsAddedToCart(true)
 
   }
 
@@ -26,7 +31,13 @@ function ItemDetail(props) {
         <small>{category}</small>
       </div>
       <div>
-        <ItemCount onSubmitCount={onSubmitCount} max={stock} min={1} />
+        {
+          isAddedToCart?
+          <Link to="/cart"><button>Ver carrito</button></Link>
+          :
+          <ItemCount onSubmitCount={onSubmitCount} max={stock} min={1} />
+        }
+        
       </div>
     </div>
   );

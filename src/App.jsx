@@ -1,3 +1,4 @@
+import { initializeApp } from "firebase/app";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,6 +13,8 @@ import Greetings from './components/Greetings';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import cartContext, { CartContextProvider } from './context/cartContext';
+import CartContainer from './components/CartContainer';
+import './css/CartContext.css'
 
 function App() {
   
@@ -34,7 +37,7 @@ function App() {
           <main>
           <section>
     
-            <Greetings greetings="Bienvenidos a CostaMusic">          
+            <Greetings greetings="Bienvenido a CostaMusic">          
             </Greetings>
             
             <ItemListContainer />
@@ -63,6 +66,14 @@ function App() {
         }>
           
         </Route>
+
+        <Route path="/cart" element={
+          <CartContainer />
+        }>
+          
+        </Route>
+
+
 
       </Routes>
       </BrowserRouter>

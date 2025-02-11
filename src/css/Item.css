@@ -3,6 +3,7 @@
     height: 450px;
     margin: 10px;
     background-color: #fdf5e6;
+    border: 2px  solid #f9a825;
 }
 .card img{
     height: 200px;

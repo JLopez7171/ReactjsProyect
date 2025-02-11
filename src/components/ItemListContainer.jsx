@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import Item from "./Item"
-import getAsyncData from '../data/getAsyncData'
-import { getAsyncItemsByCategory } from '../data/getAsyncData'
+import getAsyncData from '../data/database'
+import { getAsyncItemsByCategory } from '../data/database'
 import { useParams } from 'react-router-dom'
+import Loader from './Loader'
 
 export default function ItemListContainer(props){
 
@@ -36,7 +37,7 @@ export default function ItemListContainer(props){
           category={prod.category}
           ></Item>)
           
-
+ if(musicProducts)
     return(
 
         <div className='cardContainer'>
@@ -47,4 +48,6 @@ export default function ItemListContainer(props){
             
 
     )
+  else
+    return <Loader />
 }

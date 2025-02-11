@@ -18,19 +18,19 @@ export default function Navbar() {
                     Inicio
                 </Link>
                 
-                <Link to="/categorias/instrumentos">
+                <Link to="/categorias/Instrumentos">
                     Instrumentos
                 </Link>
                 
-                <Link to="/categorias/audio">
+                <Link to="/categorias/Audio">
                     Audio
                 </Link>
 
-                <Link to="/categorias/accesorios">
+                <Link to="/categorias/Accesorios">
                     Accesorios
                 </Link>
 
-                <Link to={`/categorias/${encodeURIComponent("producción musical")}`}>
+                <Link to={`/categorias/${encodeURIComponent("Producción Musical")}`}>
                     Producción Musical
                 </Link>
                 

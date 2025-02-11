@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
+import {memo} from "react"
 
-
-export default function Item(props) {
+ function Item(props) {
     const {id, price, title, category, img} = props;
 
     return (
@@ -22,3 +22,6 @@ export default function Item(props) {
         </article>
     );
 }
+export default memo(Item, (prevProps, newProps)=>{
+    return prevProps.id === newProps.id
+})

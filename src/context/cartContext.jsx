@@ -5,6 +5,15 @@ import {createContext, useState } from "react";
 export function CartContextProvider(props){
     const [cartItems, setCartItems]= useState([])
 
+    function getTotalPrice(){
+        let totalPrice=0
+        cartItems.forEach((item)=>{
+            totalPrice += item.count * item.price
+        })
+        return totalPrice
+    }
+
+
     function countItemsInCart(){
         let total=0
         cartItems.forEach((item)=>{
@@ -37,6 +46,7 @@ export function CartContextProvider(props){
          addItem,
          removeItem,
          clearCart,
+         getTotalPrice,
          }}>
 
             {props.children}
